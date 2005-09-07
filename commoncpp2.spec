@@ -1,4 +1,3 @@
-# TODO: pl description
 Summary:	A GNU package for creating portable C++ programs
 Summary(pl):	Pakiet GNU do tworzenia przeno¶nych programów C++
 Name:		commoncpp2
@@ -24,6 +23,15 @@ portable C++ applications including a object persistance engine, math
 libraries, threading, sockets, etc. GNU Common C++ "2" is small, and
 highly portable. GNU Common C++ "2" will support most Unix operating
 systems as well as W32, in addition to GNU/Linux.
+
+%description -l pl
+Drugie g³ówne wydanie GNU Common C++. GNU Common C++ oferuje przeno¶ne
+abstrakcje us³ug systemowych takich jak w±tki, sieci i gniazdka.
+Oferuje tak¿e indywidualne szkielety u¿yteczne do rozwijania
+przeno¶nych aplikacji C++ zawieraj±cych trwa³e obiekty silnika,
+biblioteki matematyczne, w±tków, gniazd, itd. GNU Common C++ jest ma³y
+i przeno¶ny. Wspiera wiêkszo¶æ systemów Uniksowycj systemów
+operacyjnych, jak tak¿e W32 oraz GNU/Linux.
 
 %package devel
 Summary:	Header files for commoncpp2 library
