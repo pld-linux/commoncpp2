@@ -1,12 +1,12 @@
 Summary:	A GNU package for creating portable C++ programs
 Summary(pl):	Pakiet GNU do tworzenia przeno¶nych programów w C++
 Name:		commoncpp2
-Version:	1.3.21
+Version:	1.3.22
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/commoncpp/%{name}-%{version}.tar.gz
-# Source0-md5:	a7614e7d81d3dfd6d0cb19a9daf6e29b
+# Source0-md5:	b5ae9f2763b7d3c452f81cc85accc271
 Patch0:		%{name}-Makefile.patch
 URL:		http://www.gnu.org/software/commoncpp/
 BuildRequires:	automake

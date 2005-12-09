@@ -1,6 +1,6 @@
---- commoncpp2-1.3.21/Makefile.in.orig	2005-11-22 01:55:05.000000000 +0100
-+++ commoncpp2-1.3.21/Makefile.in	2005-11-22 01:55:38.000000000 +0100
-@@ -672,23 +672,7 @@
+--- commoncpp2-1.3.22/Makefile.in~	2005-12-09 22:50:04.000000000 +0000
++++ commoncpp2-1.3.22/Makefile.in	2005-12-09 22:51:32.237288000 +0000
+@@ -431,23 +431,6 @@
  	(cd src ; make macosx)
  
  install-data-local:
@@ -21,7 +21,6 @@
 -			ldconfig ;\
 -		fi ;\
 -	fi
-+
+ 
  # Tell versions [3.59,3.63) of GNU make to not export all variables.
  # Otherwise a system limit (for SysV at least) may be exceeded.
- .NOEXPORT:
