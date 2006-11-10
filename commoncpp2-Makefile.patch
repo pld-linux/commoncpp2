@@ -70,7 +70,7 @@ diff -urN commoncpp2-1.5.1.org/src/Makefile.am commoncpp2-1.5.1/src/Makefile.am
  
  if EXTRAS
 -libccext2_la_LIBADD = @BASE_LIB@ @THREAD_LIBS@
-+libccext2_la_LIBADD = @BASE_LIB@ @THREAD_LIBS@ libccgnu2.la
++libccext2_la_LIBADD = @BASE_LIB@ @THREAD_LIBS@ libccgnu2.la -lz
  libccext2_la_LDFLAGS = $(RELEASE) $(SHARED_FLAGS)
  
  if GETOPT_LONG
@@ -81,7 +81,7 @@ diff -urN commoncpp2-1.5.1.org/src/Makefile.am commoncpp2-1.5.1/src/Makefile.am
 +
 +else
 +
-+libccext2_la_LIBADD = libccgnu2.la
++libccext2_la_LIBADD = libccgnu2.la -lz
 +
  endif
  
