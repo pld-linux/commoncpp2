@@ -7,11 +7,14 @@ License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/commoncpp/%{name}-%{version}.tar.gz
 # Source0-md5:	559c6cb2e1fbbaa6d1856d037e3722b2
+Patch0:		%{name}-Makefile.patch
 URL:		http://www.gnu.org/software/commoncpp/
+BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	doxygen
 BuildRequires:	libstdc++-devel
 BuildRequires:	libxml2-devel
+BuildRequires:	openssl-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,9 +66,14 @@ Statyczna biblioteka commoncpp2.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-%configure
+%{__aclocal} -I m4
+%{__automake}
+%{__autoconf}
+%configure \
+	--with-openssl
 %{__make}
 
 %install
