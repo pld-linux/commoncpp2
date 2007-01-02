@@ -11,46 +11,6 @@ diff -urN commoncpp2-1.5.1.org/configure.ac commoncpp2-1.5.1/configure.ac
  esac
  
  AC_SUBST(COMMON_FLAGS)
-diff -urN commoncpp2-1.5.1.org/Makefile.am commoncpp2-1.5.1/Makefile.am
---- commoncpp2-1.5.1.org/Makefile.am	2006-05-03 14:31:58.000000000 +0200
-+++ commoncpp2-1.5.1/Makefile.am	2006-11-10 11:51:07.890545000 +0100
-@@ -21,12 +21,8 @@
- if WIN32
- SUBDIRS = include src doc
- else
--if MSWIN32
--SUBDIRS = include w32 doc
--else
- SUBDIRS = include src doc
- endif
--endif
- 
- macosx:
- 	(cd src ; make macosx)
-@@ -34,23 +30,4 @@
- darwin:
- 	(cd src ; make macosx)
- 
--install-data-local:
--	@if test -f /etc/ld.so.conf \
--	  -a `echo $(libdir) | grep ^/usr`XXX != "XXX" ; then \
--		if ! grep -q "$(libdir)" /etc/ld.so.conf; then \
--			echo "------------------------------------------------------------------------------" ;\
--			echo "Hmm, looks like you forgot to add $(libdir) to /etc/ld.so.conf." ;\
--			echo "I'll try to fix it for you (but pay attention to libtool's output" ;\
--			echo "next time, ok?)" ;\
--			echo "$(libdir)" >> /etc/ld.so.conf && \
--				echo "Ok, all fixed." \
--				|| \
--				(echo "" ;\
--				echo "Well, that didn't work.  Remember to add $(libdir) to" ;\
--				echo "/etc/ld.so.conf if you want to use this library.") ;\
--			echo "------------------------------------------------------------------------------" ;\
--			ldconfig ;\
--		fi ;\
--	fi
--
- 
 diff -urN commoncpp2-1.5.1.org/src/Makefile.am commoncpp2-1.5.1/src/Makefile.am
 --- commoncpp2-1.5.1.org/src/Makefile.am	2006-09-30 18:41:53.000000000 +0200
 +++ commoncpp2-1.5.1/src/Makefile.am	2006-11-10 12:11:29.986921250 +0100
