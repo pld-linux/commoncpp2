@@ -1,0 +1,48 @@
+diff -urN commoncpp2-1.5.1.org/configure.ac commoncpp2-1.5.1/configure.ac
+--- commoncpp2-1.5.1.org/configure.ac	2006-10-07 20:14:28.000000000 +0200
++++ commoncpp2-1.5.1/configure.ac	2006-11-10 11:48:05.995177250 +0100
+@@ -354,6 +354,9 @@
+ darwin*)
+ 	MODULE_FLAGS="-dynamic -bundle -undefined suppress -flat_namespace -read_only_relocs suppress"
+ 	;;
++linux*)
++	BASE_LIB="$SSL_LIBS"
++	;;
+ esac
+ 
+ AC_SUBST(COMMON_FLAGS)
+diff -urN commoncpp2-1.5.1.org/src/Makefile.am commoncpp2-1.5.1/src/Makefile.am
+--- commoncpp2-1.5.1.org/src/Makefile.am	2006-09-30 18:41:53.000000000 +0200
++++ commoncpp2-1.5.1/src/Makefile.am	2006-11-10 12:11:29.986921250 +0100
+@@ -32,8 +32,8 @@
+ scriptdir = $(bindir)
+ script_DATA = ccgnu2-config
+ 
+-libccgnu2_la_LIBADD = @THREAD_LIBS@
+-libccgnu2_la_LDFLAGS = $(RELEASE) $(SHARED_FLAGS)
++libccgnu2_la_LIBADD = @THREAD_LIBS@ -lpthread -ldl
++libccgnu2_la_LDFLAGS = $(RELEASE) $(SHARED_FLAGS) -lpthread
+ noinst_DATA = @STAGE2@
+ 
+ libccgnu2_la_SOURCES = thread.cpp mutex.cpp semaphore.cpp threadkey.cpp \
+@@ -45,7 +45,7 @@
+ 	cidr.cpp private.h nat.h
+ 
+ if EXTRAS
+-libccext2_la_LIBADD = @BASE_LIB@ @THREAD_LIBS@
++libccext2_la_LIBADD = @BASE_LIB@ @THREAD_LIBS@ libccgnu2.la -lz
+ libccext2_la_LDFLAGS = $(RELEASE) $(SHARED_FLAGS)
+ 
+ if GETOPT_LONG
+@@ -64,6 +64,11 @@
+ 	tokenizer.cpp mime.cpp ssl.cpp
+ 
+ endif
++
++else
++
++libccext2_la_LIBADD = libccgnu2.la -lz
++
+ endif
+ 
+ # private.h and nat.h are internal headers
