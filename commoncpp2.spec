@@ -13,6 +13,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	doxygen
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel
 BuildRequires:	openssl-devel
 BuildRequires:	zlib-devel
@@ -69,9 +70,12 @@ Statyczna biblioteka commoncpp2.
 %patch0 -p1
 
 %build
+%{__libtoolize}
 %{__aclocal} -I m4
-%{__automake}
 %{__autoconf}
+%{__autoheader}
+%{__automake}
+cp -f /usr/share/automake/config.sub .
 %configure \
 	--with-openssl
 %{__make}
