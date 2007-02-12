@@ -1,5 +1,5 @@
 Summary:	A GNU package for creating portable C++ programs
-Summary(pl.UTF-8):   Pakiet GNU do tworzenia przenośnych programów w C++
+Summary(pl.UTF-8):	Pakiet GNU do tworzenia przenośnych programów w C++
 Name:		commoncpp2
 Version:	1.5.3
 Release:	1
@@ -40,7 +40,7 @@ systemów operacyjnych oraz Win32.
 
 %package devel
 Summary:	Header files for commoncpp2 library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki commoncpp2
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki commoncpp2
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
@@ -55,7 +55,7 @@ Pliki nagłówkowe biblioteki commoncpp2.
 
 %package static
 Summary:	Static commoncpp2 library
-Summary(pl.UTF-8):   Statyczna biblioteka commoncpp2
+Summary(pl.UTF-8):	Statyczna biblioteka commoncpp2
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
