@@ -1,5 +1,5 @@
 Summary:	A GNU package for creating portable C++ programs
-Summary(pl):	Pakiet GNU do tworzenia przeno秐ych program體 w C++
+Summary(pl.UTF-8):   Pakiet GNU do tworzenia przeno艣nych program贸w w C++
 Name:		commoncpp2
 Version:	1.5.3
 Release:	1
@@ -29,18 +29,18 @@ libraries, threading, sockets, etc. GNU Common C++ "2" is small, and
 highly portable. GNU Common C++ "2" will support most Unix operating
 systems as well as Win32, in addition to GNU/Linux.
 
-%description -l pl
-Drugie g丑wne wydanie GNU Common C++. GNU Common C++ oferuje przeno秐e
-abstrakcje us硊g systemowych takich jak w眛ki, sieci i gniazda.
-Oferuje tak縠 poszczeg髄ne szkielety u縴teczne do rozwijania
-przeno秐ych aplikacji C++ zawieraj眂e silnik trwa硑ch obiekt體,
-biblioteki matematyczne, w眛k體, gniazd itd. GNU Common C++ jest ma硑
-i przeno秐y. Opr骳z GNU/Linuksa obs硊guje tak縠 wi阫szo舵 uniksowych
-system體 operacyjnych oraz Win32.
+%description -l pl.UTF-8
+Drugie g艂贸wne wydanie GNU Common C++. GNU Common C++ oferuje przeno艣ne
+abstrakcje us艂ug systemowych takich jak w膮tki, sieci i gniazda.
+Oferuje tak偶e poszczeg贸lne szkielety u偶yteczne do rozwijania
+przeno艣nych aplikacji C++ zawieraj膮ce silnik trwa艂ych obiekt贸w,
+biblioteki matematyczne, w膮tk贸w, gniazd itd. GNU Common C++ jest ma艂y
+i przeno艣ny. Opr贸cz GNU/Linuksa obs艂uguje tak偶e wi臋kszo艣膰 uniksowych
+system贸w operacyjnych oraz Win32.
 
 %package devel
 Summary:	Header files for commoncpp2 library
-Summary(pl):	Pliki nag丑wkowe biblioteki commoncpp2
+Summary(pl.UTF-8):   Pliki nag艂贸wkowe biblioteki commoncpp2
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
@@ -50,19 +50,19 @@ Requires:	zlib-devel
 %description devel
 Header files for commoncpp2 library.
 
-%description devel -l pl
-Pliki nag丑wkowe biblioteki commoncpp2.
+%description devel -l pl.UTF-8
+Pliki nag艂贸wkowe biblioteki commoncpp2.
 
 %package static
 Summary:	Static commoncpp2 library
-Summary(pl):	Statyczna biblioteka commoncpp2
+Summary(pl.UTF-8):   Statyczna biblioteka commoncpp2
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static commoncpp2 library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka commoncpp2.
 
 %prep
