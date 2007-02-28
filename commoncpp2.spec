@@ -1,12 +1,12 @@
 Summary:	A GNU package for creating portable C++ programs
 Summary(pl.UTF-8):	Pakiet GNU do tworzenia przenośnych programów w C++
 Name:		commoncpp2
-Version:	1.5.3
+Version:	1.5.6
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/commoncpp/%{name}-%{version}.tar.gz
-# Source0-md5:	559c6cb2e1fbbaa6d1856d037e3722b2
+# Source0-md5:	db2fef116e3009a94a359b68602cfe85
 Patch0:		%{name}-Makefile.patch
 URL:		http://www.gnu.org/software/commoncpp/
 BuildRequires:	autoconf
