@@ -29,11 +29,11 @@ diff -urN commoncpp2-1.5.1.org/src/Makefile.am commoncpp2-1.5.1/src/Makefile.am
  	cidr.cpp private.h nat.h
  
  if EXTRAS
--libccext2_la_LIBADD = @BASE_LIB@ @THREAD_LIBS@
-+libccext2_la_LIBADD = @BASE_LIB@ @THREAD_LIBS@ libccgnu2.la -lz
- libccext2_la_LDFLAGS = $(RELEASE) $(SHARED_FLAGS)
+-libccext2_la_LDFLAGS = @BASE_LIB@ @THREAD_LIBS@ @SSL_LIBS@ @ZSTREAM_LIBS@ $(RELEASE) $(SHARED_FLAGS)
++libccext2_la_LDFLAGS = @BASE_LIB@ @THREAD_LIBS@ @SSL_LIBS@ @ZSTREAM_LIBS@ $(RELEASE) $(SHARED_FLAGS) libccgnu2.la
  
  if GETOPT_LONG
+ optincludedir=$(includedir)/cc++2
 @@ -64,6 +64,11 @@
  	tokenizer.cpp mime.cpp ssl.cpp
  
