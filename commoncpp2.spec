@@ -5,7 +5,7 @@ Version:	1.6.3
 Release:	1
 License:	GPL
 Group:		Libraries
-Source0:	ftp://ftp.gnu.org/pub/gnu/commoncpp/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/commoncpp/%{name}-%{version}.tar.gz
 # Source0-md5:	f4238f9f2bba5b643238c2b0b42ef797
 Patch0:		%{name}-lt.patch
 URL:		http://www.gnu.org/software/commoncpp/
