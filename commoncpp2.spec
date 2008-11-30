@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# don't build static library
+#
 Summary:	A GNU package for creating portable C++ programs
 Summary(pl.UTF-8):	Pakiet GNU do tworzenia przenośnych programów w C++
 Name:		commoncpp2
@@ -45,6 +49,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
 Requires:	libxml2-devel
+Requires:	openssl-devel
 Requires:	zlib-devel
 
 %description devel
@@ -76,6 +81,7 @@ Statyczna biblioteka commoncpp2.
 %{__autoheader}
 %{__automake}
 %configure \
+	%{!?with_static_libs:--disable-static} \
 	--with-openssl
 %{__make}
 
@@ -115,6 +121,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/*.pc
 %{_infodir}/*.info*
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%endif
