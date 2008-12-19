@@ -23,11 +23,11 @@ diff -urN commoncpp2-1.6.3.org/configure.ac commoncpp2-1.6.3/configure.ac
 @@ -11,8 +11,8 @@
  AC_INIT(src/thread.cpp)
  
- VERSION="1.6.3"
--LT_RELEASE="1.6"
--LT_VERSION="0:2"
-+TW_LT_RELEASE="1.6"
-+TW_LT_VERSION="0:2"
+ VERSION="1.7.0"
+-LT_RELEASE="1.7"
+-LT_VERSION="0:0"
++TW_LT_RELEASE="1.7"
++TW_LT_VERSION="0:0"
  
  dnl this is a C++ library after all..
  AC_LANG(C++)
@@ -49,6 +49,26 @@ diff -urN commoncpp2-1.6.3.org/configure.ac commoncpp2-1.6.3/configure.ac
  AC_SUBST(KDOC_DIR)
  AC_SUBST(CCXX_DIR)
  AC_SUBST(incprefix)
+@@ -400,8 +400,8 @@
+ 
+ AM_CONDITIONAL(GETOPT_LONG, [test ! -z "$LIBGETOPTOBJS"])
+ 
+-LIB_VERSION=`echo $LT_RELEASE | sed -e 's/[\.]/_/'` 
+-LIB_MAJOR=`echo $LT_VERSION | sed -e 's/[:].*$//'`
++LIB_VERSION=`echo $TW_LT_RELEASE | sed -e 's/[\.]/_/'` 
++LIB_MAJOR=`echo $TW_LT_VERSION | sed -e 's/[:].*$//'`
+ 
+ AC_SUBST(LIB_VERSION)
+ AC_SUBST(LIB_MAJOR)
+@@ -423,7 +423,7 @@
+ #
+ # Visual Studio
+ #
+-DLLVERSION=`echo "$LT_RELEASE" | sed -e 's/\.//'g`
++DLLVERSION=`echo "$TW_LT_RELEASE" | sed -e 's/\.//'g`
+ #
+ # Visual Studio 2008
+ #
 diff -urN commoncpp2-1.6.3.org/demo/Makefile.in commoncpp2-1.6.3/demo/Makefile.in
 --- commoncpp2-1.6.3.org/demo/Makefile.in	2008-08-20 20:02:57.000000000 +0200
 +++ commoncpp2-1.6.3/demo/Makefile.in	2008-08-23 12:56:17.804493110 +0200
