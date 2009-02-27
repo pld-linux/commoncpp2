@@ -23,11 +23,11 @@ diff -urN commoncpp2-1.6.3.org/configure.ac commoncpp2-1.6.3/configure.ac
 @@ -11,8 +11,8 @@
  AC_INIT(src/thread.cpp)
  
- VERSION="1.7.0"
+ VERSION="1.7.1"
 -LT_RELEASE="1.7"
--LT_VERSION="0:0"
+-LT_VERSION="0:1"
 +TW_LT_RELEASE="1.7"
-+TW_LT_VERSION="0:0"
++TW_LT_VERSION="0:1"
  
  dnl this is a C++ library after all..
  AC_LANG(C++)
