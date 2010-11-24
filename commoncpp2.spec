@@ -6,7 +6,7 @@ Summary:	A GNU package for creating portable C++ programs
 Summary(pl.UTF-8):	Pakiet GNU do tworzenia przenośnych programów w C++
 Name:		commoncpp2
 Version:	1.7.3
-Release:	3
+Release:	4
 License:	GPL
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/commoncpp/%{name}-%{version}.tar.gz
@@ -23,6 +23,8 @@ BuildRequires:	libxml2-devel
 BuildRequires:	openssl-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		skip_post_check_so	libccgnu2-.*\.so\..* libccext2-.*\.so\..*
 
 %description
 This is the second major release of GNU Common C++. GNU Common C++ "2"
