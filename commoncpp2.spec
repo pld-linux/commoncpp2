@@ -5,26 +5,27 @@
 Summary:	A GNU package for creating portable C++ programs
 Summary(pl.UTF-8):	Pakiet GNU do tworzenia przenośnych programów w C++
 Name:		commoncpp2
-Version:	1.7.3
-Release:	4
-License:	GPL
+Version:	1.8.1
+Release:	1
+License:	GPL v2+ with linking exception
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/commoncpp/%{name}-%{version}.tar.gz
-# Source0-md5:	ca741179a728d264eb276ae471ebaf70
-Patch0:		%{name}-lt.patch
-Patch1:		%{name}-gcc4.patch
+# Source0-md5:	4804b184e609154ba2bc0aa9f61dc6ef
+Patch0:		%{name}-netfilter.patch
+Patch1:		%{name}-include.patch
+Patch2:		%{name}-link.patch
+Patch3:		%{name}-info.patch
 URL:		http://www.gnu.org/software/commoncpp/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	doxygen
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRequires:	libxml2-devel
 BuildRequires:	openssl-devel
+BuildRequires:	texinfo
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		skip_post_check_so	libccgnu2-.*\.so\..* libccext2-.*\.so\..*
 
 %description
 This is the second major release of GNU Common C++. GNU Common C++ "2"
@@ -77,6 +78,8 @@ Statyczna biblioteka commoncpp2.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 %{__libtoolize}
@@ -87,6 +90,10 @@ Statyczna biblioteka commoncpp2.
 %configure \
 	%{!?with_static_libs:--disable-static} \
 	--with-openssl
+
+# ensure netfilter is detected
+grep 'HAVE_NAT_NETFILTER 1' config.h || exit 1
+
 %{__make} -j1
 
 %install
@@ -101,32 +108,37 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%post devel	-p	/sbin/postshell
+%post	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun devel	-p	/sbin/postshell
+%postun	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING.addendum NEWS README TODO ChangeLog
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%ghost %{_libdir}/libccext2-1.7.so.0
-%ghost %{_libdir}/libccgnu2-1.7.so.0
+%doc AUTHORS COPYING.addendum ChangeLog NEWS README SUPPORT THANKS TODO
+%attr(755,root,root) %{_libdir}/libccext2-1.8.so.*.*.*
+%ghost %{_libdir}/libccext2-1.8.so.0
+%attr(755,root,root) %{_libdir}/libccgnu2-1.8.so.*.*.*
+%ghost %{_libdir}/libccgnu2-1.8.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/html/*.html doc/html/*.*g*
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%doc doc/html/*.{css,html,js,png}
+%attr(755,root,root) %{_bindir}/ccgnu2-config
+%attr(755,root,root) %{_libdir}/libccext2.so
+%attr(755,root,root) %{_libdir}/libccgnu2.so
+%{_libdir}/libccext2.la
+%{_libdir}/libccgnu2.la
 %{_includedir}/cc++
-%{_aclocaldir}/*.m4
-%{_pkgconfigdir}/*.pc
-%{_infodir}/*.info*
+%{_aclocaldir}/ost_check2.m4
+%{_pkgconfigdir}/libccext2.pc
+%{_pkgconfigdir}/libccgnu2.pc
+%{_infodir}/commoncpp2.info*
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libccext2.a
+%{_libdir}/libccgnu2.a
 %endif

@@ -1,0 +1,15 @@
+--- commoncpp2-1.8.1/m4/ost_socket.m4.orig	2010-10-31 23:01:12.000000000 +0100
++++ commoncpp2-1.8.1/m4/ost_socket.m4	2012-01-02 19:23:26.549787830 +0100
+@@ -93,7 +93,11 @@
+                 AC_CHECK_HEADERS([linux/netfilter_ipv4.h linux/netfilter_ipv6.h],,,
+                     [#ifdef HAVE_LIMITS_H
+                     #include <limits.h>
+-                    #endif])
++                    #endif
++                    #include <stddef.h>
++                    #include <sys/socket.h>
++                    #include <linux/in.h>
++                    #include <linux/in6.h>])
+                 if test "$ac_cv_header_linux_netfilter_ipv4_h" = "yes" &&
+                    [ test "$ac_cv_header_linux_netfilter_ipv6_h" = "yes" &&
+                      test "$ost_cv_ipv6" = "yes" ||

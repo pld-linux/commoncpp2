@@ -1,0 +1,14 @@
+--- commoncpp2-1.8.1/doc/commoncpp2.texi.orig	2010-10-31 17:29:17.000000000 +0100
++++ commoncpp2-1.8.1/doc/commoncpp2.texi	2012-01-02 20:11:27.536550962 +0100
+@@ -12,9 +12,9 @@
+ @set VERSION 1.0
+ @set UPDATED September 2002
+ 
+-@dircategory Development
++@dircategory Libraries:
+ @direntry
+-* GNU Common C++ 2: (commoncpp2).     GNU Common C++ 2 Framework Documentation.
++* GNU Common C++ 2: (commoncpp2).	GNU Common C++ 2 Framework Documentation
+ @end direntry
+ 
+ @c -----------------------------------------------------------------------

@@ -1,0 +1,11 @@
+--- commoncpp2-1.8.1/m4/ost_ssl.m4.orig	2010-10-31 23:01:26.000000000 +0100
++++ commoncpp2-1.8.1/m4/ost_ssl.m4	2012-01-02 20:05:34.673205812 +0100
+@@ -41,7 +41,7 @@
+ #       ])
+ #   ],[
+         AC_CHECK_HEADER(openssl/ssl.h,[
+-            SSL_LIBS="-lssl"
++            SSL_LIBS="-lssl -lcrypto"
+             ost_cv_ssl=true
+             AC_DEFINE(CCXX_OPENSSL, [1], [define openssl])
+             AC_DEFINE(CCXX_SSL, [OPENSSL], [defines ssl])
