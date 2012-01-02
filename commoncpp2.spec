@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Pakiet GNU do tworzenia przenośnych programów w C++
 Name:		commoncpp2
 Version:	1.8.1
 Release:	1
-License:	GPL v2+ with linking exception
+License:	GPL v2+ with runtime exception
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/commoncpp/%{name}-%{version}.tar.gz
 # Source0-md5:	4804b184e609154ba2bc0aa9f61dc6ef
