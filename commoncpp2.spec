@@ -1,6 +1,7 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# don't build static library
+%bcond_with	gnutls		# use GnuTLS instead of OpenSSL [needs update: recent gnutls no longer uses libgcrypt]
 #
 Summary:	A GNU package for creating portable C++ programs
 Summary(pl.UTF-8):	Pakiet GNU do tworzenia przenośnych programów w C++
@@ -19,10 +20,11 @@ URL:		http://www.gnu.org/software/commoncpp/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	doxygen
+%{?with_gnutls:BuildRequires:	gnutls-devel}
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	libxml2-devel
-BuildRequires:	openssl-devel
+%{!?with_gnutls:BuildRequires:	openssl-devel}
 BuildRequires:	texinfo
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -51,9 +53,10 @@ Summary:	Header files for commoncpp2 library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki commoncpp2
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+%{?with_gnutls:Requires:	gnutls-devel}
 Requires:	libstdc++-devel
 Requires:	libxml2-devel
-Requires:	openssl-devel
+%{!?with_gnutls:Requires:	openssl-devel}
 Requires:	zlib-devel
 
 %description devel
@@ -89,10 +92,11 @@ Statyczna biblioteka commoncpp2.
 %{__automake}
 %configure \
 	%{!?with_static_libs:--disable-static} \
-	--with-openssl
+	%{?with_gnutls:--with-gnutls} \
+	%{!?with_gnutls:--with-openssl}
 
 # ensure netfilter is detected
-grep 'HAVE_NAT_NETFILTER 1' config.h || exit 1
+grep -q 'HAVE_NAT_NETFILTER 1' config.h || exit 1
 
 %{__make} -j1
 
