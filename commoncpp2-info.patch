@@ -12,3 +12,14 @@
  @end direntry
  
  @c -----------------------------------------------------------------------
+--- commoncpp2-1.8.1/doc/commoncpp2.texi~	2018-09-14 20:23:16.000000000 +0200
++++ commoncpp2-1.8.1/doc/commoncpp2.texi	2018-09-14 20:27:22.988658061 +0200
+@@ -46,7 +46,7 @@
+ 
+ @page
+ @vskip 0pt plus 1filll
+-@center{Copyright @copyright{} 1999, 2000, 2001, 2002 Open Source Telecom Corporation}
++@center Copyright @copyright{} 1999, 2000, 2001, 2002 Open Source Telecom Corporation
+ @include fdlnotice.texi
+ @page
+ @end titlepage
