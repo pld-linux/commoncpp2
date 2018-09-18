@@ -1,0 +1,11 @@
+--- commoncpp2-1.8.1/src/ssl.cpp~	2010-11-01 01:42:51.000000000 +0100
++++ commoncpp2-1.8.1/src/ssl.cpp	2018-09-14 20:17:05.700039090 +0200
+@@ -386,7 +386,7 @@ bool SSLStream::getSession(void)
+     if(so == INVALID_SOCKET)
+         return false;
+ 
+-    ctx = SSL_CTX_new(SSLv3_client_method());
++    ctx = SSL_CTX_new(TLS_client_method());
+     if(!ctx) {
+         SSL_CTX_free(ctx);
+         return false;
